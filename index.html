@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>夢想池計畫 Dream Pool Project</title>
+    <meta name="description" content="夢想池計畫：陪伴、自律、定期回報、短期見效的成長社群與實作系統。" />
+    <style>
+        :root {
+            --bg: #0b1020;
+            --bg-2: #0e1429;
+            --card: #121a33;
+            --muted: #b9c3e6;
+            --text: #eef3ff;
+            --accent: #7aa2ff;
+            --accent2: #9effd6;
+            --ring: rgba(122, 162, 255, .4);
+            --radius: 18px;
+            --shadow: 0 20px 60px rgba(0, 0, 0, .35);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, #0b1020);
+            color: var(--text);
+            line-height: 1.75;
+            letter-spacing: .2px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+        }
+
+        /* Splash */
+        .splash {
+            position: fixed;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(180deg, #0c1329, #0b1020);
+            z-index: 9999;
+            transition: opacity .8s ease
+        }
+
+        .splash.hide {
+            opacity: 0;
+            pointer-events: none
+        }
+
+        .splash-title {
+            font-weight: 900;
+            font-size: clamp(36px, 6vw, 84px);
+            letter-spacing: 3px;
+            padding: 10px 18px;
+            position: relative
+        }
+
+        .splash-title::after {
+            content: "";
+            position: absolute;
+            inset: -10px -16px;
+            border-radius: 28px;
+            background: conic-gradient(from 120deg, rgba(122, 162, 255, .4), rgba(158, 255, 214, .35), rgba(122, 162, 255, .4));
+            filter: blur(24px);
+            opacity: .5;
+            z-index: -1
+        }
+
+        /* Header / nav */
+        .sitebar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(8px);
+            background: rgba(11, 16, 32, .5);
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800
+        }
+
+        .brand .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 22px var(--accent)
+        }
+
+        .nav a {
+            color: var(--text);
+            text-decoration: none;
+            opacity: .9
+        }
+
+        .links {
+            display: flex;
+            gap: 16px;
+            align-items: center
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 3px;
+            background: var(--text);
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .links {
+                display: none;
+                flex-direction: column;
+                background: rgba(11, 16, 32, 0.95);
+                position: absolute;
+                top: 60px;
+                right: 18px;
+                padding: 12px;
+                border-radius: 12px;
+                box-shadow: var(--shadow);
+            }
+
+            .links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
+            box-shadow: var(--shadow);
+            cursor: pointer
+        }
+
+        .btn:hover {
+            border-color: rgba(255, 255, 255, .28)
+        }
+
+        .btn.primary {
+            background: linear-gradient(90deg, #ff7aa2, #ffa27a);
+            border: 1px solid transparent;
+            color: #fff;
+        }
+
+        .btn.secondary {
+            background: linear-gradient(90deg, #7affc6, #7aa2ff);
+            border: 1px solid transparent;
+            color: #fff;
+        }
+
+        /* Hero */
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 26px;
+            align-items: center;
+            padding: 56px 0
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 4.8vw, 56px);
+            margin: 0 0 12px;
+            letter-spacing: 1px
+        }
+
+        .hero p.lead {
+            margin: 8px 0 18px;
+            color: var(--muted);
+            font-size: clamp(16px, 2.2vw, 20px)
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 12px 0 18px
+        }
+
+        .badge {
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .14);
+            background: rgba(255, 255, 255, .05)
+        }
+
+        .cta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: var(--radius);
+            padding: clamp(18px, 2.6vw, 28px);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(6px);
+        }
+
+        section {
+            margin: 22px 0 28px
+        }
+
+        h2.label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(20px, 2.6vw, 26px);
+            margin: 0 0 12px
+        }
+
+        .label .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 22px var(--accent)
+        }
+
+        p {
+            margin: 10px 0
+        }
+
+        blockquote {
+            margin: 14px 0;
+            padding: 14px 16px;
+            border-left: 4px solid var(--accent);
+            background: rgba(255, 255, 255, .03);
+            border-radius: 8px
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, rgba(122, 162, 255, .18), rgba(158, 255, 214, .18));
+            border: 1px solid rgba(255, 255, 255, .06);
+            padding: 14px 16px;
+            border-radius: 12px
+        }
+
+        .grid {
+            display: grid;
+            gap: 18px
+        }
+
+        .grid.cols-2 {
+            grid-template-columns: 1fr 1fr
+        }
+
+        .grid.cols-3 {
+            grid-template-columns: repeat(3, 1fr)
+        }
+
+        /* Steps */
+        .step {
+            position: relative;
+            padding-left: 18px
+        }
+
+        .step:before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-weight: 800;
+            color: var(--accent)
+        }
+
+        /* FAQ */
+        details {
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 12px;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, .03)
+        }
+
+        details+details {
+            margin-top: 12px
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700
+        }
+
+        footer {
+            margin: 50px 0 30px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        /* Anim */
+        .reveal {
+            opacity: 0;
+            transform: translateY(12px);
+            animation: reveal .7s ease forwards
+        }
+
+        .delay-1 {
+            animation-delay: .1s
+        }
+
+        .delay-2 {
+            animation-delay: .2s
+        }
+
+        .delay-3 {
+            animation-delay: .3s
+        }
+
+        .delay-4 {
+            animation-delay: .4s
+        }
+
+        @keyframes reveal {
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        @media (max-width:900px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .grid.cols-2 {
+                grid-template-columns: 1fr
+            }
+
+            .grid.cols-3 {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            .splash {
+                transition: none
+            }
+
+            .reveal {
+                animation: none;
+                opacity: 1;
+                transform: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Splash -->
+    <div class="splash" id="splash" aria-label="封面">
+        <div class="splash-title">【夢想池計畫】</div>
+    </div>
+
+    <!-- Sticky nav -->
+    <div class="sitebar" role="navigation">
+        <div class="nav">
+            <div class="brand"><span class="dot" aria-hidden="true"></span>夢想池計畫</div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="links" id="navLinks">
+                <a href="#origin">起源</a>
+                <a href="#belief">信念</a>
+                <a href="#features">特色</a>
+                <a href="#how">怎麼運作</a>
+                <a href="#pricing">定價</a>
+                <a href="#faq">FAQ</a>
+                <a class="btn primary" href="https://discord.gg/vrK5825vEr">加入 Discord</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="wrap" aria-live="polite">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="reveal">
+                <h1>夢想池計畫</h1>
+                <p class="lead">陪伴 × 自律 × 定期回報 × 短期見效 ── 把夢想丟進池子裡，一起把它養大。</p>
+                <div class="badges">
+                    <span class="badge">低門檻：每月 100 元</span>
+                    <span class="badge">Discord 陪跑</span>
+                    <span class="badge">30 天看得見進步</span>
+                </div>
+                <div class="cta" id="cta">
+                    <a class="btn primary" href="https://discord.gg/vrK5825vEr" id="joinDiscord">加入 Discord</a>
+                    <a class="btn secondary" href="#pricing">立即訂閱 100 元/月</a>
+                </div>
+            </div>
+            <aside class="reveal delay-1 card">
+                <h2 class="label"><span class="dot"></span>這裡是什麼？</h2>
+                <p>一個把「想學習、想改變、想成長」的人聚集在一起的地方。你帶著目標進來，我們讓你帶著成果離開，幫你在 30 天內看見改變。</p>
+            </aside>
+        </section>
+
+        <!-- Origin -->
+        <section id="origin" class="card reveal delay-1" aria-labelledby="origin-title">
+            <h2 class="label" id="origin-title"><span class="dot"></span>夢想池計畫的起源</h2>
+            <p>很多人其實都有一個目標，心裡隱約知道自己想要什麼，不論是學一項技能、養成一個習慣、完成一個作品、甚至是改變自己的生活方式。</p>
+            <p>但在真正開始的路上，卻常常會碰到一個很現實的問題：堅持下去的難度，好像真的比想像中困難？</p>
+            <blockquote>
+                <p>有些人走到一半會開始迷茫：<br>「我到底該不該繼續？這條路真的對嗎？」</p>
+            </blockquote>
+            <blockquote>
+                <p>有些人卡在工具和資源不足：<br>「我想做，但手邊沒有方法、沒有教材、不知道該怎麼起步。」</p>
+            </blockquote>
+            <blockquote>
+                <p>還有一些人只是單純缺乏方向：<br>「我知道我該努力，但每天打開電腦、翻開筆記本，卻不知道第一步該做什麼。」</p>
+            </blockquote>
+            <blockquote>
+                <p>甚至還有一些人是沒有啟動資金：<br>「我想創業，但是學校沒有教，我也沒有啟動資金，我又不敢真的借錢去創業。」</p>
+            </blockquote>
+            <p>這種情況下，不少夢想就慢慢被丟在角落。不是因為不想實現，而是因為沒有人提醒、沒有人陪伴、沒有一個能回頭確認自己方向的機制。</p>
+        </section>
+
+        <!-- Belief -->
+        <section id="belief" class="card reveal delay-2" aria-labelledby="belief-title">
+            <h2 class="label" id="belief-title"><span class="dot"></span>我們的信念</h2>
+            <div class="highlight">
+                <p>其實，很多時候我們並不是做不到，而是缺少一個【適合的環境】。</p>
+                <p>這裡是一個能夠陪你一起實現目標的地方。</p>
+            </div>
+            <p>我們相信，【環境】決定了 80% 的堅持度。因此「夢想池」就是為了打造一個能夠提供：陪伴、回饋與可見成果的地方。</p>
+        </section>
+
+        <!-- Features -->
+        <section id="features" class="reveal card" aria-labelledby="feat-title">
+            <h2 class="label" id="feat-title"><span class="dot"></span>四大特色</h2>
+            <div class="grid cols-2">
+                <div class="card">
+                    <h3>陪伴</h3>
+                    <p>不再單打獨鬥。進群後會依目標加入對應子池（創業池 / 學習池 / 繪畫池 / 作品池...），有人跟你一起走，有人回應你的每一步。</p>
+                </div>
+                <div class="card">
+                    <h3>自律</h3>
+                    <p>入池第一天產出 30 天目標與行程表；每日打卡、每週複盤、每月總結，讓自律變成習慣。</p>
+                </div>
+                <div class="card">
+                    <h3>定期回報</h3>
+                    <p>每周復盤（完成 / 優化 / 下週計畫），搭配同池夥伴互動與負責人點評，讓努力可見、卡關可解。</p>
+                </div>
+                <div class="card">
+                    <h3>短期見效</h3>
+                    <p>每月挑戰聚焦在 30 天內可達成的成果：學會一個技能、養成一個習慣、產出一件作品……看得見的進度，帶來繼續前進的動力。</p>
+                </div>
+            </div>
+        </section>
+        <!-- How it works -->
+        <section id="how" class="reveal card" aria-labelledby="how-title">
+            <h2 class="label" id="how-title"><span class="dot"></span>怎麼運作</h2>
+            <div class="grid cols-2">
+                <div>
+                    <p class="step" data-step="1">加入 Discord，選擇你的目標子池。</p>
+                    <p class="step" data-step="2">提交「30 天目標單」與第一週行動表。</p>
+                    <p class="step" data-step="3">每日打卡，週末三行週報，主持人與同伴回饋。</p>
+                    <p class="step" data-step="4">第 30 天成果公開牆：分享你的改變與心得。</p>
+                </div>
+                <div class="highlight">
+                    <p>提供支援：ＡＩ工具、每周復盤、資源庫、開課講解（時間管理、啟動動機、ＡＩ助力、任務切割）。</p>
+                    <p>你能得到：可見的進步、清楚的方向、持續的支持、不限次數的隨時提問。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing" class="reveal card" aria-labelledby="pricing-title">
+            <h2 class="label" id="pricing-title"><span class="dot"></span>定價與加入</h2>
+            <div class="grid cols-2">
+                <div>
+                    <h3>入池方案</h3>
+                    <ul>
+                        <li>入場票：<strong>每月 100 元</strong>（含當月全部陪跑與資源）</li>
+                        <li>子池自由切換：依你的目標選擇聚焦主題</li>
+                        <li>當月成果牆：每月一次記錄成員的成果</li>
+                    </ul>
+                    <div class="cta">
+                        <a class="btn primary" href="https://discord.gg/vrK5825vEr" id="joinDiscord2">加入 Discord</a>
+                        <a class="btn secondary" href="#" id="subscribe">立即訂閱 100 元/月</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>為什麼只要 100 元？</h3>
+                    <p>因為我們相信「環境的力量」應該人人可得。低門檻不等於低價值──真正的價值在於你每一天的行動與改變。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="reveal card" aria-labelledby="faq-title">
+            <h2 class="label" id="faq-title"><span class="dot"></span>常見問答</h2>
+            <details>
+                <summary>我如果中途沒時間打卡怎麼辦？</summary>
+                <p>沒關係，先回到每週三行週報。夢想池不是零失敗的競賽，而是允許反覆啟動的環境。</p>
+            </details>
+            <details>
+                <summary>一定要有明確目標才能加入嗎？</summary>
+                <p>不必。你可以先加入「啟動池」，我們會用一份引導問卷幫你在 24 小時內生成第一版 30 天目標。</p>
+            </details>
+            <details>
+                <summary>我需要什麼工具？</summary>
+                <p>只要 Discord 與瀏覽器即可。我們提供 Notion/表單模板方便你記錄。</p>
+            </details>
+        </section>
+
+        <footer class="reveal delay-2">© <span id="year"></span> 夢想池計畫 Dream Pool Project</footer>
+    </main>
+
+    <script>
+        // Splash hide
+        const splash = document.getElementById('splash');
+        window.addEventListener('load', () => {
+            setTimeout(() => splash.classList.add('hide'), 1000);
+        });
+
+        // Smooth anchor scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const id = a.getAttribute('href');
+                if (id.length > 1) {
+                    const el = document.querySelector(id);
+                    if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                }
+            });
+        });
+
+        // Subscribe alert
+        const sub = document.getElementById('subscribe');
+        if (sub) { sub.addEventListener('click', (e) => { e.preventDefault(); alert('請將此按鈕連結替換為你的付款頁（如綠界、藍新、嘟嘟、Buy Me a Coffee）。'); }); }
+
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+</body>
+
+</html>
