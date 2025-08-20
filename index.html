@@ -422,7 +422,7 @@
         <section class="hero">
             <div class="reveal">
                 <h1>夢想池計畫</h1>
-                <p class="lead">陪伴 × 自律 × 定期回報 × 短期見效 ── 把夢想丟進池子裡，一起把它養大。</p>
+                <p class="lead">陪伴 × 自律 × 定期回報 × 短期見效 ── 把夢想丟進池子裡，讓我們一起把它實現。</p>
                 <div class="badges">
                     <span class="badge">低門檻：每月 100 元</span>
                     <span class="badge">Discord 陪跑</span>
@@ -535,16 +535,20 @@
         <section id="faq" class="reveal card" aria-labelledby="faq-title">
             <h2 class="label" id="faq-title"><span class="dot"></span>常見問答</h2>
             <details>
-                <summary>我如果中途沒時間打卡怎麼辦？</summary>
-                <p>沒關係，先回到每週三行週報。夢想池不是零失敗的競賽，而是允許反覆啟動的環境。</p>
+                <summary>我如果中途沒時間怎麼辦？</summary>
+                <p>沒關係，可以隨時跟負責人聯絡，我們會幫你調整出最適合的方式。夢想池不是一場競賽，而是允許反覆啟動的環境。</p>
             </details>
             <details>
                 <summary>一定要有明確目標才能加入嗎？</summary>
-                <p>不必。你可以先加入「啟動池」，我們會用一份引導問卷幫你在 24 小時內生成第一版 30 天目標。</p>
+                <p>不必。你可以先加入「啟動池」，我們會先跟你討論在 24 小時內生成第一版 30 天目標。</p>
             </details>
             <details>
                 <summary>我需要什麼工具？</summary>
-                <p>只要 Discord 與瀏覽器即可。我們提供 Notion/表單模板方便你記錄。</p>
+                <p>只要你有手機或電腦，還有一個Discord帳號，就可以加入我們。</p>
+            </details>
+            <details>
+                <summary>為什麼這麼便宜？</summary>
+                <p>我們希望打造一個所有人都可以一起努力的平台，讓所有人可以大膽追夢。</p>
             </details>
         </section>
 
@@ -571,7 +575,7 @@
 
         // Subscribe alert
         const sub = document.getElementById('subscribe');
-        if (sub) { sub.addEventListener('click', (e) => { e.preventDefault(); alert('請將此按鈕連結替換為你的付款頁（如綠界、藍新、嘟嘟、Buy Me a Coffee）。'); }); }
+        if (sub) { sub.addEventListener('click', (e) => { e.preventDefault(); alert('進入Discord群後即可加入'); }); }
 
         // Year
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -585,5 +589,6 @@
     </script>
 
 </body>
+
 
 </html>
