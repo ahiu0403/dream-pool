@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>夢想池計畫 Dream Pool Project</title>
-    <meta name="description" content="夢想池計畫：陪伴、自律、定期回報、短期見效的成長社群與實作系統。" />
+    <title>夢想池計畫</title>
+    <meta name="description" content="夢想池計畫：學業要求與推薦獎勵計畫說明。" />
     <style>
         :root {
             --bg: #0b1020;
@@ -180,6 +180,12 @@
 
         .btn.secondary {
             background: linear-gradient(90deg, #7affc6, #7aa2ff);
+            border: 1px solid transparent;
+            color: #fff;
+        }
+
+        .btn.ig {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
             border: 1px solid transparent;
             color: #fff;
         }
@@ -393,7 +399,7 @@
 <body>
     <!-- Splash -->
     <div class="splash" id="splash" aria-label="封面">
-        <div class="splash-title">【夢想池計畫】</div>
+        <div class="splash-title">夢想池計畫</div>
     </div>
 
     <!-- Sticky nav -->
@@ -406,13 +412,11 @@
                 <span></span>
             </div>
             <div class="links" id="navLinks">
-                <a href="#origin">起源</a>
-                <a href="#belief">信念</a>
-                <a href="#features">特色</a>
-                <a href="#how">怎麼運作</a>
-                <a href="#pricing">定價</a>
-                <a href="#faq">FAQ</a>
-                <a class="btn primary" href="https://discord.gg/vrK5825vEr">加入 Discord</a>
+                <a href="#academic">學業要求</a>
+                <a href="#referral">推薦計畫</a>
+                <a href="#faq">常見問答</a>
+                <a class="btn primary" href="https://discord.gg/vrK5825vEr">Discord</a>
+                <a class="btn ig" href="https://www.instagram.com/dream_pool_ycql/">Instagram</a>
             </div>
         </div>
     </div>
@@ -422,137 +426,111 @@
         <section class="hero">
             <div class="reveal">
                 <h1>夢想池計畫</h1>
-                <p class="lead">陪伴 × 自律 × 定期回報 × 短期見效 ── 把夢想丟進池子裡，讓我們一起把它實現。</p>
+                <p class="lead">透過完成作業與推薦夥伴，獲得專屬特權與獎勵金</p>
                 <div class="badges">
-                    <span class="badge">低門檻：每月 100 元</span>
-                    <span class="badge">Discord 陪跑</span>
-                    <span class="badge">30 天看得見進步</span>
+                    <span class="badge">為期半年課程</span>
+                    <span class="badge">專屬作業系統</span>
+                    <span class="badge">推薦獎勵機制</span>
                 </div>
-                <div class="cta" id="cta">
-                    <a class="btn primary" href="https://discord.gg/vrK5825vEr" id="joinDiscord">加入 Discord</a>
-                    <a class="btn secondary" href="#pricing">立即訂閱 100 元/月</a>
+                <div class="cta">
+                    <a class="btn primary" href="https://discord.gg/vrK5825vEr">加入 Discord</a>
+                    <a class="btn ig" href="https://www.instagram.com/dream_pool_ycql/">關注 Instagram</a>
                 </div>
             </div>
             <aside class="reveal delay-1 card">
-                <h2 class="label"><span class="dot"></span>這裡是什麼？</h2>
-                <p>一個把「想學習、想改變、想成長」的人聚集在一起的地方。你帶著目標進來，我們讓你帶著成果離開，幫你在 30 天內看見改變。</p>
+                <h2 class="label"><span class="dot"></span>計畫簡介</h2>
+                <p>我們提供為期半年的課程，每月定期發佈作業幫助學員鞏固學習成果，並透過推薦獎勵計畫鼓勵學員分享優質學習環境。</p>
             </aside>
         </section>
 
-        <!-- Origin -->
-        <section id="origin" class="card reveal delay-1" aria-labelledby="origin-title">
-            <h2 class="label" id="origin-title"><span class="dot"></span>夢想池計畫的起源</h2>
-            <p>很多人其實都有一個目標，心裡隱約知道自己想要什麼，不論是學一項技能、養成一個習慣、完成一個作品、甚至是改變自己的生活方式。</p>
-            <p>但在真正開始的路上，卻常常會碰到一個很現實的問題：堅持下去的難度，好像真的比想像中困難？</p>
-            <blockquote>
-                <p>有些人走到一半會開始迷茫：<br>「我到底該不該繼續？這條路真的對嗎？」</p>
-            </blockquote>
-            <blockquote>
-                <p>有些人卡在工具和資源不足：<br>「我想做，但手邊沒有方法、沒有教材、不知道該怎麼起步。」</p>
-            </blockquote>
-            <blockquote>
-                <p>還有一些人只是單純缺乏方向：<br>「我知道我該努力，但每天打開電腦、翻開筆記本，卻不知道第一步該做什麼。」</p>
-            </blockquote>
-            <blockquote>
-                <p>甚至還有一些人是沒有啟動資金：<br>「我想創業，但是學校沒有教，我也沒有啟動資金，我又不敢真的借錢去創業。」</p>
-            </blockquote>
-            <p>這種情況下，不少夢想就慢慢被丟在角落。不是因為不想實現，而是因為沒有人提醒、沒有人陪伴、沒有一個能回頭確認自己方向的機制。</p>
-        </section>
-
-        <!-- Belief -->
-        <section id="belief" class="card reveal delay-2" aria-labelledby="belief-title">
-            <h2 class="label" id="belief-title"><span class="dot"></span>我們的信念</h2>
-            <div class="highlight">
-                <p>其實，很多時候我們並不是做不到，而是缺少一個【適合的環境】。</p>
-                <p>這裡是一個能夠陪你一起實現目標的地方。</p>
-            </div>
-            <p>我們相信，【環境】決定了 80% 的堅持度。因此「夢想池」就是為了打造一個能夠提供：陪伴、回饋與可見成果的地方。</p>
-        </section>
-
-        <!-- Features -->
-        <section id="features" class="reveal card" aria-labelledby="feat-title">
-            <h2 class="label" id="feat-title"><span class="dot"></span>四大特色</h2>
-            <div class="grid cols-2">
-                <div class="card">
-                    <h3>陪伴</h3>
-                    <p>不再單打獨鬥。進群後會依目標加入對應子池（創業池 / 學習池 / 繪畫池 / 作品池...），有人跟你一起走，有人回應你的每一步。</p>
-                </div>
-                <div class="card">
-                    <h3>自律</h3>
-                    <p>入池第一天產出 30 天目標與行程表；每日打卡、每週複盤、每月總結，讓自律變成習慣。</p>
-                </div>
-                <div class="card">
-                    <h3>定期回報</h3>
-                    <p>每周復盤（完成 / 優化 / 下週計畫），搭配同池夥伴互動與負責人點評，讓努力可見、卡關可解。</p>
-                </div>
-                <div class="card">
-                    <h3>短期見效</h3>
-                    <p>每月挑戰聚焦在 30 天內可達成的成果：學會一個技能、養成一個習慣、產出一件作品……看得見的進度，帶來繼續前進的動力。</p>
-                </div>
-            </div>
-        </section>
-        <!-- How it works -->
-        <section id="how" class="reveal card" aria-labelledby="how-title">
-            <h2 class="label" id="how-title"><span class="dot"></span>怎麼運作</h2>
-            <div class="grid cols-2">
-                <div>
-                    <p class="step" data-step="1">加入 Discord，選擇你的目標子池。</p>
-                    <p class="step" data-step="2">負責人會幫你排出「30 天目標單」。</p>
-                    <p class="step" data-step="3">每日打卡，定期完成目標，每周追蹤。</p>
-                    <p class="step" data-step="4">第 30 天成果公開牆：分享你的改變與心得。</p>
-                </div>
-                <div class="highlight">
-                    <p>提供支援：ＡＩ工具、每周復盤、資源庫、開課講解（時間管理、啟動動機、ＡＩ助力、任務切割）。</p>
-                    <p>你能得到：可見的進步、清楚的方向、持續的支持、不限次數的隨時提問。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing -->
-        <section id="pricing" class="reveal card" aria-labelledby="pricing-title">
-            <h2 class="label" id="pricing-title"><span class="dot"></span>定價與加入</h2>
-            <div class="grid cols-2">
-                <div>
-                    <h3>入池方案</h3>
+        <!-- 學業要求與獎勵 -->
+        <section id="academic" class="card reveal delay-1" aria-labelledby="academic-title">
+            <h2 class="label" id="academic-title"><span class="dot"></span>學業要求與獎勵</h2>
+            <p>本課程為期半年，每月會定期發佈作業，以幫助學員鞏固學習成果。</p>
+            <p>為鼓勵學員積極參與並完成學業，我們設立以下機制：</p>
+            <ul>
+                <li>學員會籍：自繳費成功後生效，有效期為180天。</li>
+                <li>結業特權：成功結業的學員將成為我們的榮譽校友，可專享以下權益：
                     <ul>
-                        <li>入場票：<strong>每月 100 元</strong>（含當月全部陪跑與資源）</li>
-                        <li>子池自由切換：依你的目標選擇聚焦主題</li>
-                        <li>當月成果牆：每月一次記錄成員的成果</li>
+                        <li>優先參與未來舉辦的線上答疑會或專屬工作坊。</li>
+                        <li>其成功推薦的新學員報名時，可獲得由我們提供的額外學習福利。</li>
                     </ul>
-                    <div class="cta">
-                        <a class="btn primary" href="https://discord.gg/vrK5825vEr" id="joinDiscord2">加入 Discord</a>
-                        <a class="btn secondary" href="#" id="subscribe">立即訂閱 100 元/月</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>為什麼只要 100 元？</h3>
-                    <p>因為我們相信「環境的力量」應該人人可得。低門檻不等於低價值──真正的價值在於你每一天的行動與改變。</p>
-                </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 推薦獎勵計畫說明 -->
+        <section id="referral" class="card reveal delay-2" aria-labelledby="referral-title">
+            <h2 class="label" id="referral-title"><span class="dot"></span>推薦獎勵計畫說明</h2>
+            <p>我們堅信好的課程與環境值得被更多人知道。</p>
+            <p>而學員親自真誠推薦，遠比任何廣告都更有力量。</p>
+
+            <div class="highlight">
+                <h3>獎勵緣由：</h3>
+                <p>您獲得的獎勵，是我們將<strong>原本計畫支付給廣告平臺（如Facebook、Google）的行銷費用</strong>，直接感謝給您。因為您的分享，我們節省了中間管道成本，我們希望將這份價值與您共用。
+                </p>
+            </div>
+
+            <div class="highlight">
+                <h3>獎勵規則：</h3>
+                <p>每當您成功推薦一位新朋友報名本課程，且該朋友通過<strong>7天猶豫期</strong>並完成所有付款後，您即可獲得<strong>500台幣</strong>的感謝金。</p>
+            </div>
+
+            <div class="highlight">
+                <h3>發放時間：</h3>
+                <p>所有感謝金將於隔月1號統一發放，以確保款項無任何爭議。</p>
+                <p>（若遇推薦對象之猶豫期未滿，則該筆獎金將順延至通過猶豫期後隔一天發放。）</p>
+            </div>
+
+            <div class="highlight">
+                <h3>行為準則：</h3>
+                <p>本計畫旨在獎勵「分享價值」的行為。我們有權審核所有推薦活動的合理性。對於<strong>僅為獲取獎金而進行惡意推薦、擾亂社群秩序、或從不參與學習的人</strong>，我們保留<strong>凍結其獎金發放、暫停其推薦資格、乃至終止其會籍</strong>的權利，恕不另行通知。
+                </p>
             </div>
         </section>
 
         <!-- FAQ -->
         <section id="faq" class="reveal card" aria-labelledby="faq-title">
             <h2 class="label" id="faq-title"><span class="dot"></span>常見問答</h2>
+
             <details>
-                <summary>我如果中途沒時間怎麼辦？</summary>
-                <p>沒關係，可以隨時跟負責人聯絡，我們會幫你調整出最適合的方式。夢想池不是一場競賽，而是允許反覆啟動的環境。</p>
+                <summary>為什麼要完成作業？</summary>
+                <p>我們鼓勵學員完成作業，是為了幫助您更好地鞏固學習成果。每位學員都是獨立的個體，因此作業內容會因人而異，有別於傳統學校統一發放相同作業的模式，我們希望透過量身訂做的內容達到因材施教的效果。作業多為開放性答案，旨在激發思考，沒有絕對的標準答案。
+                </p>
             </details>
+
             <details>
-                <summary>一定要有明確目標才能加入嗎？</summary>
-                <p>不必。你可以先加入「啟動池」，我們會先跟你討論在 24 小時內生成第一版 30 天目標。</p>
+                <summary>為什麼要邀請人？</summary>
+                <p>因為我們團隊堅信這裡不只是一個線上課程平台，更是一個互助成長的環境。我們提供的資源包含：線上工具、課內問題有問必答、學員交流園地、課外答疑、以及獎勵機制。為了讓這個對人有幫助的環境能夠持續擴大，間接改善大家的學習生態，我們鼓勵認同這個環境的學員，邀請夥伴一同加入，共享資源。
+                </p>
             </details>
+
             <details>
-                <summary>我需要什麼工具？</summary>
-                <p>只要你有手機或電腦，還有一個Discord帳號，就可以加入我們。</p>
+                <summary>那我是不是可以只拉人賺錢就好？</summary>
+                <p><strong>絕對不行，且我們有機制防止此事。</strong>
+                    本平台的核心是學習與成長。我們會持續檢視學員的參與狀況。對於「從不參與學習課程與作業，僅進行推廣」的人，我們將視其為惡意操作，並<strong>立即凍結其獎金與推薦資格</strong>。我們獎勵的是認同課程價值後的分享行為，而非單純的資金遊戲。請與我們一同維護這個環境的初衷。
+                </p>
             </details>
+
             <details>
-                <summary>為什麼這麼便宜？</summary>
-                <p>我們希望打造一個所有人都可以一起努力的平台，讓所有人可以大膽追夢。</p>
+                <summary>為什麼獎學金是500台幣？還要「經過七天猶豫期」才發放？</summary>
+                <p>這500台幣是我們<strong>省下的廣告行銷費用</strong>，為了感謝您以信譽為我們推薦課程而分享給您。設置「7天猶豫期」是為了確保學費款項無爭議，避免極少數人利用推薦機制進行惡意操作（例如：推薦後立即退款），這能保障所有學員和平台的公平性，讓資源能用在真正需要的地方。
+                </p>
+            </details>
+
+            <details>
+                <summary>我上課都很認真！也有完成作業，但是邀請不到人，那我是不是就沒有獎勵了？</summary>
+                <p>請別擔心！我們獎勵的方式有兩種：</p>
+                <ol>
+                    <li><strong>學業獎勵</strong>：只要您按時完成所有作業，即可成為我們的<strong>榮譽校友</strong>，享有<strong>優先參與活動、為您推薦的新學員爭取學習福利</strong>等專屬特權。
+                    </li>
+                    <li><strong>推薦獎勵</strong>：這是為分享價值行為提供的額外感謝。</li>
+                </ol>
+                <p>如果您遇到任何困難，歡迎主動與我們聯繫，我們非常樂意提供協助。</p>
             </details>
         </section>
 
-        <footer class="reveal delay-2">© <span id="year"></span> 夢想池計畫 Dream Pool Project</footer>
+        <footer class="reveal delay-2">© <span id="year"></span> 夢想池計畫</footer>
     </main>
 
     <script>
@@ -573,10 +551,6 @@
             });
         });
 
-        // Subscribe alert
-        const sub = document.getElementById('subscribe');
-        if (sub) { sub.addEventListener('click', (e) => { e.preventDefault(); alert('進入Discord群後即可加入'); }); }
-
         // Year
         document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -590,6 +564,4 @@
 
 </body>
 
-
 </html>
-
